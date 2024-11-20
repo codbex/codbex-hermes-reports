@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-win-los-analysis-report/gen/opportunity-win-los-analysis/ui/Reports/LeadEngagement/dialog-filter/view.js",
+    "extensionPoint": "opportunity-win-los-analysis-report-dialog-window",
+    "description": "opportunity-win-los-analysis-report - Application Dialog Window"
+}

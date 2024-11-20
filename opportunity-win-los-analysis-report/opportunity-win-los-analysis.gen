@@ -1,0 +1,14 @@
+{
+  "brand": "codbex",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Lead Engagement",
+  "projectName": "opportunity-win-los-analysis-report",
+  "workspaceName": "workspace",
+  "filePath": "opportunity-win-los-analysis.report",
+  "templateId": "template-application-ui-angular/template/template-report-file.js",
+  "fileName": "opportunity-win-los-analysis",
+  "genFolderName": "opportunity-win-los-analysis",
+  "extensionPoint": "opportunity-win-los-analysis-report",
+  "name": "LeadEngagement",
+  "perspectiveName": "LeadEngagement"
+}

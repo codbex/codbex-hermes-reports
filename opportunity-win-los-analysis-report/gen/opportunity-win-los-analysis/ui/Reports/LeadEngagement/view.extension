@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-win-los-analysis-report/gen/opportunity-win-los-analysis/ui/Reports/LeadEngagement/view.js",
+    "extensionPoint": "opportunity-win-los-analysis-report-view",
+    "description": "opportunity-win-los-analysis-report - Application View"
+}

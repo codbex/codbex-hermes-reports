@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-win-los-analysis-report/gen/opportunity-win-los-analysis/ui/Reports/LeadEngagement/tile.js",
+    "extensionPoint": "opportunity-win-los-analysis-report-tile",
+    "description": "opportunity-win-los-analysis-report - Application Tile"
+}
