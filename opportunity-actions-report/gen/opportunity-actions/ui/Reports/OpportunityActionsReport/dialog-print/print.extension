@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "opportunity-actions-report-custom-action",
+    "module": "opportunity-actions-report/gen/opportunity-actions/ui/Reports/OpportunityActionsReport/dialog-print/print.js",
+    "description": "Print OpportunityActionsReport Report"
+}

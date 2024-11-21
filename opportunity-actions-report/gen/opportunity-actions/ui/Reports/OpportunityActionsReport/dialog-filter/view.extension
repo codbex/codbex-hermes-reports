@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-actions-report/gen/opportunity-actions/ui/Reports/OpportunityActionsReport/dialog-filter/view.js",
+    "extensionPoint": "opportunity-actions-report-dialog-window",
+    "description": "opportunity-actions-report - Application Dialog Window"
+}

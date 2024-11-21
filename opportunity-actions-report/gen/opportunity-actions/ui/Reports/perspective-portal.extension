@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-actions-report/gen/opportunity-actions/ui/Reports/perspective.js",
+    "extensionPoint": "portal",
+    "description": "opportunity-actions-report - Perspective - Reports"
+}
