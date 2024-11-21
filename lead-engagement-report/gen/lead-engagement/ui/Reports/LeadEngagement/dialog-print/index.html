@@ -23,10 +23,9 @@
             <table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
                 <thead fd-table-header sticky="true">
                     <tr fd-table-row>
-						<th fd-table-header-cell>leadContactname</th>
-						<th fd-table-header-cell>leadStatus</th>
-						<th fd-table-header-cell>leadactionsDate</th>
-						<th fd-table-header-cell>leadactionsSubject</th>
+						<th fd-table-header-cell>Date</th>
+						<th fd-table-header-cell>Action Type</th>
+						<th fd-table-header-cell>Note</th>
                     </tr>
                 </thead>
                 <tbody fd-table-body>
@@ -34,12 +33,11 @@
                         <td fd-table-cell no-data="true">No data available.</td>
                     </tr>
                     <tr fd-table-row hoverable="true" ng-repeat="next in data">
-						<td fd-table-cell hoverable="true" activable="true">{{next['leadContactname']}}</td>
-						<td fd-table-cell hoverable="true" activable="true">{{next['leadStatus']}}</td>
 						<td fd-table-cell hoverable="true" activable="true">
-							<fd-input type="date" ng-model="next['leadactionsDate']" ng-readonly="true"></fd-input>
+							<fd-input type="date" ng-model="next['Date']" ng-readonly="true"></fd-input>
 						</td>
-						<td fd-table-cell hoverable="true" activable="true">{{next['leadactionsSubject']}}</td>
+						<td fd-table-cell hoverable="true" activable="true">{{next['Action Type']}}</td>
+						<td fd-table-cell hoverable="true" activable="true">{{next['Note']}}</td>
                     </tr>
                 </tbody>
             </table>

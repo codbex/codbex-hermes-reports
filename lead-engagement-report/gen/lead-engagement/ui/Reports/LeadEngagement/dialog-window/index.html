@@ -28,41 +28,12 @@
                 <fd-form-group dg-header="LeadEngagement Details" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idleadContactname" dg-colon="true">leadContactname</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-input id="idleadContactname"
-	                            name="leadContactname"
-	                            ng-model="entity['leadContactname']"
-	                            ng-readonly="true"
-	                            type="text"
-	                            placeholder="Enter leadContactname">
-	                        </fd-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idleadStatus" dg-colon="true">leadStatus</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idleadStatus"
-								class="right-align"
-								name="leadStatus"
-								ng-model="entity['leadStatus']"
-								is-readonly="true"
-								placeholder="Enter leadStatus"
-								>
-							</fd-step-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idleadactionsDate" dg-colon="true">leadactionsDate</fd-form-label>
+                        	<fd-form-label for="idDate" dg-colon="true">Date</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-	                        <fd-input id="idleadactionsDate"
-	                            name="leadactionsDate"
-	                            ng-model="entity['leadactionsDate']"
+	                        <fd-input id="idDate"
+	                            name="Date"
+	                            ng-model="entity['Date']"
 	                            ng-readonly="true"
 	                            type="date">
 	                        </fd-input>
@@ -70,15 +41,29 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idleadactionsSubject" dg-colon="true">leadactionsSubject</fd-form-label>
+                        	<fd-form-label for="idAction Type" dg-colon="true">Action Type</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-input id="idleadactionsSubject"
-	                            name="leadactionsSubject"
-	                            ng-model="entity['leadactionsSubject']"
+	                        <fd-input id="idAction Type"
+	                            name="Action Type"
+	                            ng-model="entity['Action Type']"
 	                            ng-readonly="true"
 	                            type="text"
-	                            placeholder="Enter leadactionsSubject">
+	                            placeholder="Enter Action Type">
+	                        </fd-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idNote" dg-colon="true">Note</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-input id="idNote"
+	                            name="Note"
+	                            ng-model="entity['Note']"
+	                            ng-readonly="true"
+	                            type="text"
+	                            placeholder="Enter Note">
 	                        </fd-input>
 	                    </div>
                     </fd-form-item>

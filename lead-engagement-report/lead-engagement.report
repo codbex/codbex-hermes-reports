@@ -1,59 +1,61 @@
 {
-    "query": "SELECT codbexLead.LEAD_CONTACTNAME as \"leadContactname\", codbexLead.LEAD_STATUS as \"leadStatus\", MAX(codbexLeadactions.LEADACTIONS_DATE) as \"leadactionsDate\", codbexLeadactions.LEADACTIONS_SUBJECT as \"leadactionsSubject\" FROM CODBEX_LEAD as codbexLead INNER JOIN CODBEX_LEADACTIONS codbexLeadactions ON LEADACTIONS_LEAD = LEAD_ID WHERE LEADACTIONS_LEAD = LEAD_ID GROUP BY codbexLead.LEAD_CONTACTNAME, codbexLead.LEAD_STATUS, codbexLeadactions.LEADACTIONS_SUBJECT",
-    "name": "LeadEngagement",
-    "alias": "codbexLead",
+    "name": "LeadEngagementReport",
+    "alias": "Lead",
     "table": "CODBEX_LEAD",
     "columns": [
         {
-            "table": "codbexLead",
-            "alias": "leadContactname",
-            "name": "LEAD_CONTACTNAME",
-            "type": "CHARACTER VARYING",
-            "aggregate": "NONE",
-            "select": true,
-            "grouping": true
-        },
-        {
-            "table": "codbexLead",
-            "alias": "leadStatus",
-            "name": "LEAD_STATUS",
-            "type": "INTEGER",
-            "aggregate": "NONE",
-            "select": true,
-            "grouping": true
-        },
-        {
-            "table": "codbexLeadactions",
-            "alias": "leadactionsDate",
-            "name": "LEADACTIONS_DATE",
+            "table": "Lead Action",
+            "alias": "Date",
+            "name": "LEADACTION_DATE",
             "type": "DATE",
-            "aggregate": "MAX",
+            "aggregate": "NONE",
             "select": true,
             "grouping": false
         },
         {
-            "table": "codbexLeadactions",
-            "alias": "leadactionsSubject",
-            "name": "LEADACTIONS_SUBJECT",
+            "table": "Action Type",
+            "alias": "Action Type",
+            "name": "ACTIONTYPE_NAME",
             "type": "CHARACTER VARYING",
             "aggregate": "NONE",
             "select": true,
-            "grouping": true
+            "grouping": false
+        },
+        {
+            "table": "Lead Note",
+            "alias": "Note",
+            "name": "LEADNOTE_NOTE",
+            "type": "VARCHAR",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
         }
     ],
+    "query": "SELECT Lead Action.LEADACTION_DATE as \"Date\", Action Type.ACTIONTYPE_NAME as \"Action Type\", Lead Note.LEADNOTE_NOTE as \"Note\"\nFROM CODBEX_LEAD as Lead\n  INNER JOIN CODBEX_LEADACTION Lead Action ON Lead.LEAD_ID = Lead Action.LEADACTION_LEAD\n  INNER JOIN CODBEX_ACTIONTYPE Action Type ON Lead Action.LEADACTION_TYPE = Action Type.ACTIONTYPE_ID\n  INNER JOIN CODBEX_LEADNOTE Lead Note ON Lead Action.LEADACTION_NOTE = Lead Note.LEADNOTE_ID\nORDER BY LEADACTION_DATE DESC",
     "joins": [
         {
-            "alias": "codbexLeadactions",
-            "name": "CODBEX_LEADACTIONS",
+            "alias": "Lead Action",
+            "name": "CODBEX_LEADACTION",
             "type": "INNER",
-            "condition": "LEADACTIONS_LEAD = LEAD_ID"
+            "condition": "Lead.LEAD_ID = Lead Action.LEADACTION_LEAD"
+        },
+        {
+            "alias": "Action Type",
+            "name": "CODBEX_ACTIONTYPE",
+            "type": "INNER",
+            "condition": "Lead Action.LEADACTION_TYPE = Action Type.ACTIONTYPE_ID"
+        },
+        {
+            "alias": "Lead Note",
+            "name": "CODBEX_LEADNOTE",
+            "type": "INNER",
+            "condition": "Lead Action.LEADACTION_NOTE = Lead Note.LEADNOTE_ID"
         }
     ],
-    "conditions": [
+    "orderings": [
         {
-            "left": "LEADACTIONS_LEAD",
-            "operation": "=",
-            "right": "LEAD_ID"
+            "column": "LEADACTION_DATE",
+            "direction": "DESC"
         }
     ]
 }

@@ -26,10 +26,9 @@
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>leadContactname</th>
-						<th fd-table-header-cell>leadStatus</th>
-						<th fd-table-header-cell>leadactionsDate</th>
-						<th fd-table-header-cell>leadactionsSubject</th>
+						<th fd-table-header-cell>Date</th>
+						<th fd-table-header-cell>Action Type</th>
+						<th fd-table-header-cell>Note</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -39,10 +38,9 @@
 					</tr>
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next === selectedEntity" ng-click="selectEntity(next)">
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['leadContactname']}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['leadStatus']}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['leadactionsDate']}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['leadactionsSubject']}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['Date']}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['Action Type']}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next['Note']}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

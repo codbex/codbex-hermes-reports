@@ -1,10 +1,9 @@
 import { Query, NamedQueryParameter } from "sdk/db";
 
 export interface LeadEngagement {
-    readonly 'leadContactname': string;
-    readonly 'leadStatus': number;
-    readonly 'leadactionsDate': Date;
-    readonly 'leadactionsSubject': string;
+    readonly 'Date': Date;
+    readonly 'Action Type': string;
+    readonly 'Note': string;
 }
 
 export interface LeadEngagementFilter {
@@ -25,7 +24,12 @@ export class LeadEngagementRepository {
 
     public findAll(filter: LeadEngagementPaginatedFilter): LeadEngagement[] {
         const sql = `
-            SELECT codbexLead.LEAD_CONTACTNAME as "leadContactname", codbexLead.LEAD_STATUS as "leadStatus", MAX(codbexLeadactions.LEADACTIONS_DATE) as "leadactionsDate", codbexLeadactions.LEADACTIONS_SUBJECT as "leadactionsSubject" FROM CODBEX_LEAD as codbexLead INNER JOIN CODBEX_LEADACTIONS codbexLeadactions ON LEADACTIONS_LEAD = LEAD_ID WHERE LEADACTIONS_LEAD = LEAD_ID GROUP BY codbexLead.LEAD_CONTACTNAME, codbexLead.LEAD_STATUS, codbexLeadactions.LEADACTIONS_SUBJECT
+            SELECT Lead Action.LEADACTION_DATE as "Date", Action Type.ACTIONTYPE_NAME as "Action Type", Lead Note.LEADNOTE_NOTE as "Note"
+            FROM CODBEX_LEAD as Lead
+              INNER JOIN CODBEX_LEADACTION Lead Action ON Lead.LEAD_ID = Lead Action.LEADACTION_LEAD
+              INNER JOIN CODBEX_ACTIONTYPE Action Type ON Lead Action.LEADACTION_TYPE = Action Type.ACTIONTYPE_ID
+              INNER JOIN CODBEX_LEADNOTE Lead Note ON Lead Action.LEADACTION_NOTE = Lead Note.LEADNOTE_ID
+            ORDER BY LEADACTION_DATE DESC
             ${Number.isInteger(filter.$limit) ? ` LIMIT ${filter.$limit}` : ''}
             ${Number.isInteger(filter.$offset) ? ` OFFSET ${filter.$offset}` : ''}
         `;
@@ -38,7 +42,12 @@ export class LeadEngagementRepository {
     public count(filter: LeadEngagementFilter): number {
         const sql = `
             SELECT COUNT(*) as REPORT_COUNT FROM (
-                SELECT codbexLead.LEAD_CONTACTNAME as "leadContactname", codbexLead.LEAD_STATUS as "leadStatus", MAX(codbexLeadactions.LEADACTIONS_DATE) as "leadactionsDate", codbexLeadactions.LEADACTIONS_SUBJECT as "leadactionsSubject" FROM CODBEX_LEAD as codbexLead INNER JOIN CODBEX_LEADACTIONS codbexLeadactions ON LEADACTIONS_LEAD = LEAD_ID WHERE LEADACTIONS_LEAD = LEAD_ID GROUP BY codbexLead.LEAD_CONTACTNAME, codbexLead.LEAD_STATUS, codbexLeadactions.LEADACTIONS_SUBJECT
+                SELECT Lead Action.LEADACTION_DATE as "Date", Action Type.ACTIONTYPE_NAME as "Action Type", Lead Note.LEADNOTE_NOTE as "Note"
+                FROM CODBEX_LEAD as Lead
+                  INNER JOIN CODBEX_LEADACTION Lead Action ON Lead.LEAD_ID = Lead Action.LEADACTION_LEAD
+                  INNER JOIN CODBEX_ACTIONTYPE Action Type ON Lead Action.LEADACTION_TYPE = Action Type.ACTIONTYPE_ID
+                  INNER JOIN CODBEX_LEADNOTE Lead Note ON Lead Action.LEADACTION_NOTE = Lead Note.LEADNOTE_ID
+                ORDER BY LEADACTION_DATE DESC
             )
         `;
 

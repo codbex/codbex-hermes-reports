@@ -2,13 +2,13 @@
   "brand": "codbex",
   "brandUrl": "https://www.codbex.com/",
   "title": "Opportunity Actions Report",
-  "projectName": "opportunity-actions-report",
-  "workspaceName": "workspace",
-  "filePath": "opportunity-actions.report",
-  "templateId": "template-application-ui-angular/template/template-report-file.js",
   "fileName": "opportunity-actions",
   "genFolderName": "opportunity-actions",
   "extensionPoint": "opportunity-actions-report",
   "name": "OpportunityActionsReport",
-  "perspectiveName": "OpportunityActionsReport"
+  "perspectiveName": "OpportunityActionsReport",
+  "projectName": "opportunity-actions-report",
+  "workspaceName": "workspace",
+  "filePath": "opportunity-actions.report",
+  "templateId": "template-application-ui-angular/template/template-report-file.js"
 }

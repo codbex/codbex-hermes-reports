@@ -1,6 +1,6 @@
 {
     "name": "OpportunityActionsReport",
-    "alias": "codbexOpportunity",
+    "alias": "Opportunity",
     "table": "CODBEX_OPPORTUNITY",
     "columns": [
         {
@@ -49,7 +49,7 @@
             "grouping": false
         }
     ],
-    "query": "SELECT Opportunity.OPPORTUNITY_ID as \"Id\", Customer.CUSTOMER_NAME as \"Name\", Opportunity Action.OPPORTUNITYACTION_DATE as \"Date\", Action Type.ACTIONTYPE_NAME as \"Action Type\", Opportunity Note.OPPORTUNITYNOTE_NOTE as \"Note\"\nFROM CODBEX_OPPORTUNITY as codbexOpportunity\n  INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID\n  INNER JOIN CODBEX_OPPORTUNITYACTION Opportunity Action ON Opportunity.OPPORTUNITY_ID = Opportunity Action.OPPORTUNITYACTION_OPPORTUNITY\n  INNER JOIN CODBEX_ACTIONTYPE Action Type ON Opportunity Action.OPPORTUNITYACTION_TYPE = Action Type.ACTIONTYPE_ID\n  INNER JOIN CODBEX_OPPORTUNITYNOTE codbexOpportunitynote ON Opportunity Action.OPPORTUNITYACTION_NOTE = Opportunity Note.OPPORTUNITYNOTE_ID\nORDER BY OPPORTUNITYACTION_DATE DESC",
+    "query": "SELECT Opportunity.OPPORTUNITY_ID as \"Id\", Customer.CUSTOMER_NAME as \"Name\", Opportunity Action.OPPORTUNITYACTION_DATE as \"Date\", Action Type.ACTIONTYPE_NAME as \"Action Type\", Opportunity Note.OPPORTUNITYNOTE_NOTE as \"Note\"\nFROM CODBEX_OPPORTUNITY as Opportunity\n  INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID\n  INNER JOIN CODBEX_OPPORTUNITYACTION Opportunity Action ON Opportunity.OPPORTUNITY_ID = Opportunity Action.OPPORTUNITYACTION_OPPORTUNITY\n  INNER JOIN CODBEX_ACTIONTYPE Action Type ON Opportunity Action.OPPORTUNITYACTION_TYPE = Action Type.ACTIONTYPE_ID\n  INNER JOIN CODBEX_OPPORTUNITYNOTE Opportunity Note ON Opportunity Action.OPPORTUNITYACTION_NOTE = Opportunity Note.OPPORTUNITYNOTE_ID\nORDER BY OPPORTUNITYACTION_DATE DESC",
     "joins": [
         {
             "alias": "Customer",
@@ -70,7 +70,7 @@
             "condition": "Opportunity Action.OPPORTUNITYACTION_TYPE = Action Type.ACTIONTYPE_ID"
         },
         {
-            "alias": "codbexOpportunitynote",
+            "alias": "Opportunity Note",
             "name": "CODBEX_OPPORTUNITYNOTE",
             "type": "INNER",
             "condition": "Opportunity Action.OPPORTUNITYACTION_NOTE = Opportunity Note.OPPORTUNITYNOTE_ID"

@@ -34,8 +34,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
                 }
 
                 response.data.forEach(e => {
-                    if (e['leadactionsDate']) {
-                        e['leadactionsDate'] = new Date(e['leadactionsDate']);
+                    if (e['Date']) {
+                        e['Date'] = new Date(e['Date']);
                     }
                 });
 
