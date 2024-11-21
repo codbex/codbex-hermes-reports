@@ -1,0 +1,5 @@
+{
+    "module": "quotation-issuance-and-acceptance-report/gen/quotation-issuance-and-acceptance/ui/Reports/QuotationIssuanceAndAcceptance/view.js",
+    "extensionPoint": "quotation-issuance-and-acceptance-report-view",
+    "description": "quotation-issuance-and-acceptance-report - Application View"
+}

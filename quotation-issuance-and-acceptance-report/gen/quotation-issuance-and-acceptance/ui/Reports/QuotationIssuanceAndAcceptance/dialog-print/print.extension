@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "quotation-issuance-and-acceptance-report-custom-action",
+    "module": "quotation-issuance-and-acceptance-report/gen/quotation-issuance-and-acceptance/ui/Reports/QuotationIssuanceAndAcceptance/dialog-print/print.js",
+    "description": "Print QuotationIssuanceAndAcceptance Report"
+}

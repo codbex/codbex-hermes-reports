@@ -1,0 +1,5 @@
+{
+    "module": "quotation-issuance-and-acceptance-report/gen/quotation-issuance-and-acceptance/ui/Reports/perspective.js",
+    "extensionPoint": "quotation-issuance-and-acceptance-report",
+    "description": "quotation-issuance-and-acceptance-report - Perspective - Reports"
+}

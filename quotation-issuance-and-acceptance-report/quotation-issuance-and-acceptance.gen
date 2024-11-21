@@ -1,0 +1,14 @@
+{
+  "brand": "codbex",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Quotation Issuance and Acceptance Report",
+  "fileName": "quotation-issuance-and-acceptance",
+  "genFolderName": "quotation-issuance-and-acceptance",
+  "extensionPoint": "quotation-issuance-and-acceptance-report",
+  "name": "QuotationIssuanceAndAcceptance",
+  "perspectiveName": "QuotationIssuanceAndAcceptance",
+  "projectName": "quotation-issuance-and-acceptance-report",
+  "workspaceName": "workspace",
+  "filePath": "quotation-issuance-and-acceptance.report",
+  "templateId": "template-application-ui-angular/template/template-report-file.js"
+}

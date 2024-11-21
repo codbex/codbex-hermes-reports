@@ -1,0 +1,5 @@
+{
+    "module": "quotation-issuance-and-acceptance-report/gen/quotation-issuance-and-acceptance/ui/Reports/QuotationIssuanceAndAcceptance/dialog-window/view.js",
+    "extensionPoint": "quotation-issuance-and-acceptance-report-dialog-window",
+    "description": "quotation-issuance-and-acceptance-report - Application Dialog Window"
+}
