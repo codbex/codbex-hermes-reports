@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-priority-report/gen/opportunity-priority/ui/Reports/perspective.js",
+    "extensionPoint": "opportunity-priority-report",
+    "description": "opportunity-priority-report - Perspective - Reports"
+}

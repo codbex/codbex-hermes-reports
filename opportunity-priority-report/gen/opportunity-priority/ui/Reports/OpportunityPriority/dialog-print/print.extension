@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "opportunity-priority-report-custom-action",
+    "module": "opportunity-priority-report/gen/opportunity-priority/ui/Reports/OpportunityPriority/dialog-print/print.js",
+    "description": "Print OpportunityPriority Report"
+}

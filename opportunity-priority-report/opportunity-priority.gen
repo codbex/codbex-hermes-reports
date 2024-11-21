@@ -1,0 +1,14 @@
+{
+  "brand": "codbex",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Opportunity Priority Report",
+  "fileName": "opportunity-priority",
+  "genFolderName": "opportunity-priority",
+  "extensionPoint": "opportunity-priority-report",
+  "name": "OpportunityPriority",
+  "perspectiveName": "OpportunityPriority",
+  "projectName": "opportunity-priority-report",
+  "workspaceName": "workspace",
+  "filePath": "opportunity-priority.report",
+  "templateId": "template-application-ui-angular/template/template-report-file.js"
+}

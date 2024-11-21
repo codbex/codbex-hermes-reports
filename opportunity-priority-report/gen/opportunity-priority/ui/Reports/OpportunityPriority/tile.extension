@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-priority-report/gen/opportunity-priority/ui/Reports/OpportunityPriority/tile.js",
+    "extensionPoint": "opportunity-priority-report-tile",
+    "description": "opportunity-priority-report - Application Tile"
+}
