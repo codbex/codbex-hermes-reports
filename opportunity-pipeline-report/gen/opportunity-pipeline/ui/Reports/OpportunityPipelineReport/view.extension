@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-pipeline-report/gen/opportunity-pipeline/ui/Reports/OpportunityPipelineReport/view.js",
+    "extensionPoint": "opportunity-pipeline-report-view",
+    "description": "opportunity-pipeline-report - Application View"
+}

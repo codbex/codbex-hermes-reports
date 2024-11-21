@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-pipeline-report/gen/opportunity-pipeline/ui/Reports/OpportunityPipelineReport/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "opportunity-pipeline-report - Application Tile"
+}

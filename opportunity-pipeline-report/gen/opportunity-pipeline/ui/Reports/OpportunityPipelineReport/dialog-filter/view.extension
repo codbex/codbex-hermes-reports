@@ -1,0 +1,5 @@
+{
+    "module": "opportunity-pipeline-report/gen/opportunity-pipeline/ui/Reports/OpportunityPipelineReport/dialog-filter/view.js",
+    "extensionPoint": "opportunity-pipeline-report-dialog-window",
+    "description": "opportunity-pipeline-report - Application Dialog Window"
+}

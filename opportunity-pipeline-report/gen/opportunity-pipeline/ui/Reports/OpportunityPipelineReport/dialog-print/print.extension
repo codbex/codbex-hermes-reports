@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "opportunity-pipeline-report-custom-action",
+    "module": "opportunity-pipeline-report/gen/opportunity-pipeline/ui/Reports/OpportunityPipelineReport/dialog-print/print.js",
+    "description": "Print OpportunityPipelineReport Report"
+}
