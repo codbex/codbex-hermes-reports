@@ -1,0 +1,14 @@
+{
+  "brand": "codbex",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Lead Engagement Report",
+  "fileName": "lead-engagement",
+  "genFolderName": "lead-engagement",
+  "extensionPoint": "lead-engagement-report",
+  "name": "LeadEngagement",
+  "perspectiveName": "LeadEngagement",
+  "projectName": "lead-engagement-report",
+  "workspaceName": "workspace",
+  "filePath": "lead-engagement.report",
+  "templateId": "template-application-ui-angular/template/template-report-file.js"
+}

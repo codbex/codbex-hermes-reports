@@ -1,0 +1,59 @@
+{
+    "query": "SELECT codbexLead.LEAD_CONTACTNAME as \"leadContactname\", codbexLead.LEAD_STATUS as \"leadStatus\", MAX(codbexLeadactions.LEADACTIONS_DATE) as \"leadactionsDate\", codbexLeadactions.LEADACTIONS_SUBJECT as \"leadactionsSubject\" FROM CODBEX_LEAD as codbexLead INNER JOIN CODBEX_LEADACTIONS codbexLeadactions ON LEADACTIONS_LEAD = LEAD_ID WHERE LEADACTIONS_LEAD = LEAD_ID GROUP BY codbexLead.LEAD_CONTACTNAME, codbexLead.LEAD_STATUS, codbexLeadactions.LEADACTIONS_SUBJECT",
+    "name": "LeadEngagement",
+    "alias": "codbexLead",
+    "table": "CODBEX_LEAD",
+    "columns": [
+        {
+            "table": "codbexLead",
+            "alias": "leadContactname",
+            "name": "LEAD_CONTACTNAME",
+            "type": "CHARACTER VARYING",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": true
+        },
+        {
+            "table": "codbexLead",
+            "alias": "leadStatus",
+            "name": "LEAD_STATUS",
+            "type": "INTEGER",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": true
+        },
+        {
+            "table": "codbexLeadactions",
+            "alias": "leadactionsDate",
+            "name": "LEADACTIONS_DATE",
+            "type": "DATE",
+            "aggregate": "MAX",
+            "select": true,
+            "grouping": false
+        },
+        {
+            "table": "codbexLeadactions",
+            "alias": "leadactionsSubject",
+            "name": "LEADACTIONS_SUBJECT",
+            "type": "CHARACTER VARYING",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": true
+        }
+    ],
+    "joins": [
+        {
+            "alias": "codbexLeadactions",
+            "name": "CODBEX_LEADACTIONS",
+            "type": "INNER",
+            "condition": "LEADACTIONS_LEAD = LEAD_ID"
+        }
+    ],
+    "conditions": [
+        {
+            "left": "LEADACTIONS_LEAD",
+            "operation": "=",
+            "right": "LEAD_ID"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "lead-engagement-report-custom-action",
+    "module": "lead-engagement-report/gen/lead-engagement/ui/Reports/LeadEngagement/dialog-print/print.js",
+    "description": "Print LeadEngagement Report"
+}

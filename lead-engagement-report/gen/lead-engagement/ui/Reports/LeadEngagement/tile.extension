@@ -1,0 +1,5 @@
+{
+    "module": "lead-engagement-report/gen/lead-engagement/ui/Reports/LeadEngagement/tile.js",
+    "extensionPoint": "lead-engagement-report-tile",
+    "description": "lead-engagement-report - Application Tile"
+}

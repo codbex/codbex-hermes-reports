@@ -1,0 +1,5 @@
+{
+    "module": "lead-engagement-report/gen/lead-engagement/ui/Reports/LeadEngagement/view.js",
+    "extensionPoint": "lead-engagement-report-view",
+    "description": "lead-engagement-report - Application View"
+}
