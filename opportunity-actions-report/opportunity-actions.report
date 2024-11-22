@@ -1,12 +1,12 @@
 {
-    "name": "OpportunityActionsReport",
+    "name": "OpportunityActions",
     "alias": "Opportunity",
     "table": "CODBEX_OPPORTUNITY",
     "columns": [
         {
-            "table": "Lead",
-            "alias": "Name",
-            "name": "LEAD_CONTACTNAME",
+            "table": "Opportunity",
+            "alias": "Id",
+            "name": "OPPORTUNITY_ID",
             "type": "INTEGER",
             "aggregate": "NONE",
             "select": true,
@@ -16,7 +16,7 @@
             "table": "Customer",
             "alias": "Name",
             "name": "CUSTOMER_NAME",
-            "type": "CHARACTER VARYING",
+            "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
             "grouping": false
@@ -34,7 +34,7 @@
             "table": "ActionType",
             "alias": "Action Type",
             "name": "ACTIONTYPE_NAME",
-            "type": "CHARACTER VARYING",
+            "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
             "grouping": false
@@ -43,13 +43,13 @@
             "table": "OpportunityNote",
             "alias": "Note",
             "name": "OPPORTUNITYNOTE_NOTE",
-            "type": "CHARACTER VARYING",
+            "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
             "grouping": false
         }
     ],
-    "query": "SELECT Lead.LEAD_CONTACTNAME as \"Name\", Customer.CUSTOMER_NAME as \"Name\", OpportunityAction.OPPORTUNITYACTION_DATE as \"Date\", ActionType.ACTIONTYPE_NAME as \"Action Type\", OpportunityNote.OPPORTUNITYNOTE_NOTE as \"Note\"\nFROM CODBEX_OPPORTUNITY as Opportunity\n  INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID\n  INNER JOIN CODBEX_OPPORTUNITYACTION OpportunityAction ON Opportunity.OPPORTUNITY_ID = OpportunityAction.OPPORTUNITYACTION_OPPORTUNITY\n  INNER JOIN CODBEX_ACTIONTYPE ActionType ON OpportunityAction.OPPORTUNITYACTION_TYPE = ActionType.ACTIONTYPE_ID\n  INNER JOIN CODBEX_OPPORTUNITYNOTE OpportunityNote ON OpportunityAction.OPPORTUNITYACTION_NOTE = OpportunityNote.OPPORTUNITYNOTE_ID\nORDER BY OPPORTUNITYACTION_DATE DESC",
+    "query": "SELECT Opportunity.OPPORTUNITY_ID as \"Id\", Customer.CUSTOMER_NAME as \"Name\", OpportunityAction.OPPORTUNITYACTION_DATE as \"Date\", ActionType.ACTIONTYPE_NAME as \"Action Type\", OpportunityNote.OPPORTUNITYNOTE_NOTE as \"Note\"\nFROM CODBEX_OPPORTUNITY as Opportunity\n  INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID\n  INNER JOIN CODBEX_OPPORTUNITYACTION OpportunityAction ON Opportunity.OPPORTUNITY_ID = OpportunityAction.OPPORTUNITYACTION_OPPORTUNITY\n  INNER JOIN CODBEX_ACTIONTYPE ActionType ON OpportunityAction.OPPORTUNITYACTION_TYPE = ActionType.ACTIONTYPE_ID\n  INNER JOIN CODBEX_OPPORTUNITYNOTE OpportunityNote ON OpportunityAction.OPPORTUNITYACTION_NOTE = OpportunityNote.OPPORTUNITYNOTE_ID\nORDER BY OPPORTUNITYACTION_DATE DESC",
     "joins": [
         {
             "alias": "Customer",

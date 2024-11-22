@@ -2,7 +2,7 @@ import { Query, NamedQueryParameter } from "sdk/db";
 
 export interface OpportunityPipelineReport {
     readonly 'Status': string;
-    readonly 'Total Opportunities': number;
+    readonly 'Opportunities': number;
     readonly 'Total': number;
     readonly 'Currency': string;
 }
@@ -25,7 +25,7 @@ export class OpportunityPipelineReportRepository {
 
     public findAll(filter: OpportunityPipelineReportPaginatedFilter): OpportunityPipelineReport[] {
         const sql = `
-            SELECT OpportunityStatus.OPPORTUNITYSTATUS_NAME as "Status", COUNT(Opportunity.OPPORTUNITY_ID) as "Total Opportunities", SUM(Opportunity.OPPORTUNITY_AMOUNT) as "Total", Currency.CURRENCY_CODE as "Currency"
+            SELECT OpportunityStatus.OPPORTUNITYSTATUS_NAME as "Status", COUNT(Opportunity.OPPORTUNITY_ID) as "Opportunities", SUM(Opportunity.OPPORTUNITY_AMOUNT) as "Total", Currency.CURRENCY_CODE as "Currency"
             FROM CODBEX_OPPORTUNITYSTATUS as OpportunityStatus
               INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityStatus.OPPORTUNITYSTATUS_ID = Opportunity.OPPORTUNITY_STATUS
               INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID
@@ -42,7 +42,7 @@ export class OpportunityPipelineReportRepository {
     public count(filter: OpportunityPipelineReportFilter): number {
         const sql = `
             SELECT COUNT(*) as REPORT_COUNT FROM (
-                SELECT OpportunityStatus.OPPORTUNITYSTATUS_NAME as "Status", COUNT(Opportunity.OPPORTUNITY_ID) as "Total Opportunities", SUM(Opportunity.OPPORTUNITY_AMOUNT) as "Total", Currency.CURRENCY_CODE as "Currency"
+                SELECT OpportunityStatus.OPPORTUNITYSTATUS_NAME as "Status", COUNT(Opportunity.OPPORTUNITY_ID) as "Opportunities", SUM(Opportunity.OPPORTUNITY_AMOUNT) as "Total", Currency.CURRENCY_CODE as "Currency"
                 FROM CODBEX_OPPORTUNITYSTATUS as OpportunityStatus
                   INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityStatus.OPPORTUNITYSTATUS_ID = Opportunity.OPPORTUNITY_STATUS
                   INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID

@@ -1,6 +1,6 @@
 {
-    "query": "SELECT OpportunityStatus.OPPORTUNITYSTATUS_NAME as \"Status\", COUNT(Opportunity.OPPORTUNITY_ID) as \"Total Opportunities\", SUM(Opportunity.OPPORTUNITY_AMOUNT) as \"Total\", Currency.CURRENCY_CODE as \"Currency\"\nFROM CODBEX_OPPORTUNITYSTATUS as OpportunityStatus\n  INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityStatus.OPPORTUNITYSTATUS_ID = Opportunity.OPPORTUNITY_STATUS\n  INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID\nGROUP BY OpportunityStatus.OPPORTUNITYSTATUS_NAME",
-    "name": "OpportunityPipelineReport",
+    "query": "SELECT OpportunityStatus.OPPORTUNITYSTATUS_NAME as \"Status\", COUNT(Opportunity.OPPORTUNITY_ID) as \"Opportunities\", SUM(Opportunity.OPPORTUNITY_AMOUNT) as \"Total\", Currency.CURRENCY_CODE as \"Currency\"\nFROM CODBEX_OPPORTUNITYSTATUS as OpportunityStatus\n  INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityStatus.OPPORTUNITYSTATUS_ID = Opportunity.OPPORTUNITY_STATUS\n  INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID\nGROUP BY OpportunityStatus.OPPORTUNITYSTATUS_NAME",
+    "name": "OpportunityPipeline",
     "alias": "OpportunityStatus",
     "table": "CODBEX_OPPORTUNITYSTATUS",
     "columns": [
@@ -15,7 +15,7 @@
         },
         {
             "table": "Opportunity",
-            "alias": "Total Opportunities",
+            "alias": "Opportunities",
             "name": "OPPORTUNITY_ID",
             "type": "DECIMAL",
             "aggregate": "COUNT",

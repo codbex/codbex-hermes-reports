@@ -1,5 +1,5 @@
 {
-    "name": "LeadEngagementReport",
+    "name": "LeadEngagement",
     "alias": "Lead",
     "table": "CODBEX_LEAD",
     "columns": [
@@ -7,7 +7,7 @@
             "table": "Lead",
             "alias": "Name",
             "name": "LEAD_CONTACTNAME",
-            "type": "INTEGER",
+            "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
             "grouping": false
@@ -25,7 +25,7 @@
             "table": "ActionType",
             "alias": "Action Type",
             "name": "ACTIONTYPE_NAME",
-            "type": "CHARACTER VARYING",
+            "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
             "grouping": false

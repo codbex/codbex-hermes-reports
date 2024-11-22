@@ -1,7 +1,7 @@
 import { Query, NamedQueryParameter } from "sdk/db";
 
 export interface LeadEngagement {
-    readonly 'Name': number;
+    readonly 'Name': string;
     readonly 'Date': Date;
     readonly 'Action Type': string;
     readonly 'Note': string;

@@ -1,7 +1,7 @@
 import { Query, NamedQueryParameter } from "sdk/db";
 
 export interface OpportunityActionsReport {
-    readonly 'Name': number;
+    readonly 'Id': number;
     readonly 'Name': string;
     readonly 'Date': Date;
     readonly 'Action Type': string;
@@ -26,7 +26,7 @@ export class OpportunityActionsReportRepository {
 
     public findAll(filter: OpportunityActionsReportPaginatedFilter): OpportunityActionsReport[] {
         const sql = `
-            SELECT Lead.LEAD_CONTACTNAME as "Name", Customer.CUSTOMER_NAME as "Name", OpportunityAction.OPPORTUNITYACTION_DATE as "Date", ActionType.ACTIONTYPE_NAME as "Action Type", OpportunityNote.OPPORTUNITYNOTE_NOTE as "Note"
+            SELECT Opportunity.OPPORTUNITY_ID as "Id", Customer.CUSTOMER_NAME as "Name", OpportunityAction.OPPORTUNITYACTION_DATE as "Date", ActionType.ACTIONTYPE_NAME as "Action Type", OpportunityNote.OPPORTUNITYNOTE_NOTE as "Note"
             FROM CODBEX_OPPORTUNITY as Opportunity
               INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID
               INNER JOIN CODBEX_OPPORTUNITYACTION OpportunityAction ON Opportunity.OPPORTUNITY_ID = OpportunityAction.OPPORTUNITYACTION_OPPORTUNITY
@@ -45,7 +45,7 @@ export class OpportunityActionsReportRepository {
     public count(filter: OpportunityActionsReportFilter): number {
         const sql = `
             SELECT COUNT(*) as REPORT_COUNT FROM (
-                SELECT Lead.LEAD_CONTACTNAME as "Name", Customer.CUSTOMER_NAME as "Name", OpportunityAction.OPPORTUNITYACTION_DATE as "Date", ActionType.ACTIONTYPE_NAME as "Action Type", OpportunityNote.OPPORTUNITYNOTE_NOTE as "Note"
+                SELECT Opportunity.OPPORTUNITY_ID as "Id", Customer.CUSTOMER_NAME as "Name", OpportunityAction.OPPORTUNITYACTION_DATE as "Date", ActionType.ACTIONTYPE_NAME as "Action Type", OpportunityNote.OPPORTUNITYNOTE_NOTE as "Note"
                 FROM CODBEX_OPPORTUNITY as Opportunity
                   INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID
                   INNER JOIN CODBEX_OPPORTUNITYACTION OpportunityAction ON Opportunity.OPPORTUNITY_ID = OpportunityAction.OPPORTUNITYACTION_OPPORTUNITY
