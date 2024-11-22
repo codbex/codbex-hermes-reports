@@ -1,17 +1,17 @@
 {
-    "query": "SELECT Quotation_Status.QUOTATIONSTATUS_NAME as \"Status\", COUNT(Quotation.QUOTATION_ID) as \"Total Quotations\", SUM(Quotation.QUOTATION_TOTAL) as \"Total Amount\", Currency.CURRENCY_CODE as \"Currency\"\nFROM CODBEX_QUOTATIONSTATUS as Quotation_Status\n  INNER JOIN CODBEX_QUOTATION Quotation ON Quotation_Status.QUOTATIONSTATUS_ID = Quotation.QUOTATION_STATUS\n  INNER JOIN CODBEX_CURRENCY Currency ON Quotation.QUOTATION_CURRENCY = Currency.CURRENCY_ID",
+    "query": "SELECT QuotationStatus.QUOTATIONSTATUS_NAME as \"Status\", COUNT(Quotation.QUOTATION_ID) as \"Total Quotations\", SUM(Quotation.QUOTATION_TOTAL) as \"Total Amount\", Currency.CURRENCY_CODE as \"Currency\"\nFROM CODBEX_QUOTATIONSTATUS as QuotationStatus\n  INNER JOIN CODBEX_QUOTATION Quotation ON QuotationStatus.QUOTATIONSTATUS_ID = Quotation.QUOTATION_STATUS\n  INNER JOIN CODBEX_CURRENCY Currency ON Quotation.QUOTATION_CURRENCY = Currency.CURRENCY_ID\nGROUP BY QuotationStatus.QUOTATIONSTATUS_NAME",
     "name": "QuotationIssuanceAndAcceptance",
-    "alias": "Quotation_Status",
+    "alias": "QuotationStatus",
     "table": "CODBEX_QUOTATIONSTATUS",
     "columns": [
         {
-            "table": "Quotation_Status",
+            "table": "QuotationStatus",
             "alias": "Status",
             "name": "QUOTATIONSTATUS_NAME",
             "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
-            "grouping": false
+            "grouping": true
         },
         {
             "table": "Quotation",
@@ -46,7 +46,7 @@
             "alias": "Quotation",
             "name": "CODBEX_QUOTATION",
             "type": "INNER",
-            "condition": "Quotation_Status.QUOTATIONSTATUS_ID = Quotation.QUOTATION_STATUS"
+            "condition": "QuotationStatus.QUOTATIONSTATUS_ID = Quotation.QUOTATION_STATUS"
         },
         {
             "alias": "Currency",

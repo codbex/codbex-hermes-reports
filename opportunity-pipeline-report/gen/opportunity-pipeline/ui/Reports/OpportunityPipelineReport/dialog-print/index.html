@@ -36,10 +36,7 @@
                     <tr fd-table-row hoverable="true" ng-repeat="next in data">
 						<td fd-table-cell hoverable="true" activable="true">{{next['Status']}}</td>
 						<td fd-table-cell hoverable="true" activable="true">{{next['Total Opportunities']}}</td>
-						<td fd-table-cell hoverable="true" activable="true">
-							<fd-checkbox id="idTotal" compact="false" ng-disabled="true" ng-model="next['Total']"></fd-checkbox>
-							<fd-checkbox-label for="idTotal" empty="true"></fd-checkbox-label>
-						</td>
+						<td fd-table-cell hoverable="true" activable="true">{{next['Total']}}</td>
 						<td fd-table-cell hoverable="true" activable="true">{{next['Currency']}}</td>
                     </tr>
                 </tbody>

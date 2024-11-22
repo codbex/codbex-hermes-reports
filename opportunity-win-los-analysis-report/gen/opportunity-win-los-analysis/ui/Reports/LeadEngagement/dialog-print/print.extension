@@ -1,5 +1,0 @@
-{
-    "extensionPoint": "opportunity-win-los-analysis-report-custom-action",
-    "module": "opportunity-win-los-analysis-report/gen/opportunity-win-los-analysis/ui/Reports/LeadEngagement/dialog-print/print.js",
-    "description": "Print LeadEngagement Report"
-}

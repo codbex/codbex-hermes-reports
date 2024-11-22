@@ -1,7 +1,7 @@
 import { Query, NamedQueryParameter } from "sdk/db";
 
 export interface OpportunityActionsReport {
-    readonly 'Id': number;
+    readonly 'Name': number;
     readonly 'Name': string;
     readonly 'Date': Date;
     readonly 'Action Type': string;
@@ -26,12 +26,12 @@ export class OpportunityActionsReportRepository {
 
     public findAll(filter: OpportunityActionsReportPaginatedFilter): OpportunityActionsReport[] {
         const sql = `
-            SELECT Opportunity.OPPORTUNITY_ID as "Id", Customer.CUSTOMER_NAME as "Name", Opportunity Action.OPPORTUNITYACTION_DATE as "Date", Action Type.ACTIONTYPE_NAME as "Action Type", Opportunity Note.OPPORTUNITYNOTE_NOTE as "Note"
+            SELECT Lead.LEAD_CONTACTNAME as "Name", Customer.CUSTOMER_NAME as "Name", OpportunityAction.OPPORTUNITYACTION_DATE as "Date", ActionType.ACTIONTYPE_NAME as "Action Type", OpportunityNote.OPPORTUNITYNOTE_NOTE as "Note"
             FROM CODBEX_OPPORTUNITY as Opportunity
               INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID
-              INNER JOIN CODBEX_OPPORTUNITYACTION Opportunity Action ON Opportunity.OPPORTUNITY_ID = Opportunity Action.OPPORTUNITYACTION_OPPORTUNITY
-              INNER JOIN CODBEX_ACTIONTYPE Action Type ON Opportunity Action.OPPORTUNITYACTION_TYPE = Action Type.ACTIONTYPE_ID
-              INNER JOIN CODBEX_OPPORTUNITYNOTE Opportunity Note ON Opportunity Action.OPPORTUNITYACTION_NOTE = Opportunity Note.OPPORTUNITYNOTE_ID
+              INNER JOIN CODBEX_OPPORTUNITYACTION OpportunityAction ON Opportunity.OPPORTUNITY_ID = OpportunityAction.OPPORTUNITYACTION_OPPORTUNITY
+              INNER JOIN CODBEX_ACTIONTYPE ActionType ON OpportunityAction.OPPORTUNITYACTION_TYPE = ActionType.ACTIONTYPE_ID
+              INNER JOIN CODBEX_OPPORTUNITYNOTE OpportunityNote ON OpportunityAction.OPPORTUNITYACTION_NOTE = OpportunityNote.OPPORTUNITYNOTE_ID
             ORDER BY OPPORTUNITYACTION_DATE DESC
             ${Number.isInteger(filter.$limit) ? ` LIMIT ${filter.$limit}` : ''}
             ${Number.isInteger(filter.$offset) ? ` OFFSET ${filter.$offset}` : ''}
@@ -45,12 +45,12 @@ export class OpportunityActionsReportRepository {
     public count(filter: OpportunityActionsReportFilter): number {
         const sql = `
             SELECT COUNT(*) as REPORT_COUNT FROM (
-                SELECT Opportunity.OPPORTUNITY_ID as "Id", Customer.CUSTOMER_NAME as "Name", Opportunity Action.OPPORTUNITYACTION_DATE as "Date", Action Type.ACTIONTYPE_NAME as "Action Type", Opportunity Note.OPPORTUNITYNOTE_NOTE as "Note"
+                SELECT Lead.LEAD_CONTACTNAME as "Name", Customer.CUSTOMER_NAME as "Name", OpportunityAction.OPPORTUNITYACTION_DATE as "Date", ActionType.ACTIONTYPE_NAME as "Action Type", OpportunityNote.OPPORTUNITYNOTE_NOTE as "Note"
                 FROM CODBEX_OPPORTUNITY as Opportunity
                   INNER JOIN CODBEX_CUSTOMER Customer ON Opportunity.OPPORTUNITY_CUSTOMER = Customer.CUSTOMER_ID
-                  INNER JOIN CODBEX_OPPORTUNITYACTION Opportunity Action ON Opportunity.OPPORTUNITY_ID = Opportunity Action.OPPORTUNITYACTION_OPPORTUNITY
-                  INNER JOIN CODBEX_ACTIONTYPE Action Type ON Opportunity Action.OPPORTUNITYACTION_TYPE = Action Type.ACTIONTYPE_ID
-                  INNER JOIN CODBEX_OPPORTUNITYNOTE Opportunity Note ON Opportunity Action.OPPORTUNITYACTION_NOTE = Opportunity Note.OPPORTUNITYNOTE_ID
+                  INNER JOIN CODBEX_OPPORTUNITYACTION OpportunityAction ON Opportunity.OPPORTUNITY_ID = OpportunityAction.OPPORTUNITYACTION_OPPORTUNITY
+                  INNER JOIN CODBEX_ACTIONTYPE ActionType ON OpportunityAction.OPPORTUNITYACTION_TYPE = ActionType.ACTIONTYPE_ID
+                  INNER JOIN CODBEX_OPPORTUNITYNOTE OpportunityNote ON OpportunityAction.OPPORTUNITYACTION_NOTE = OpportunityNote.OPPORTUNITYNOTE_ID
                 ORDER BY OPPORTUNITYACTION_DATE DESC
             )
         `;

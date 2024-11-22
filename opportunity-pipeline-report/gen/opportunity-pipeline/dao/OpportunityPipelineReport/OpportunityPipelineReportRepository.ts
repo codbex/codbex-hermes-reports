@@ -3,7 +3,7 @@ import { Query, NamedQueryParameter } from "sdk/db";
 export interface OpportunityPipelineReport {
     readonly 'Status': string;
     readonly 'Total Opportunities': number;
-    readonly 'Total': boolean;
+    readonly 'Total': number;
     readonly 'Currency': string;
 }
 
@@ -29,6 +29,7 @@ export class OpportunityPipelineReportRepository {
             FROM CODBEX_OPPORTUNITYSTATUS as OpportunityStatus
               INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityStatus.OPPORTUNITYSTATUS_ID = Opportunity.OPPORTUNITY_STATUS
               INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID
+            GROUP BY OpportunityStatus.OPPORTUNITYSTATUS_NAME
             ${Number.isInteger(filter.$limit) ? ` LIMIT ${filter.$limit}` : ''}
             ${Number.isInteger(filter.$offset) ? ` OFFSET ${filter.$offset}` : ''}
         `;
@@ -45,6 +46,7 @@ export class OpportunityPipelineReportRepository {
                 FROM CODBEX_OPPORTUNITYSTATUS as OpportunityStatus
                   INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityStatus.OPPORTUNITYSTATUS_ID = Opportunity.OPPORTUNITY_STATUS
                   INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID
+                GROUP BY OpportunityStatus.OPPORTUNITYSTATUS_NAME
             )
         `;
 

@@ -1,5 +1,5 @@
 {
-    "query": "SELECT OpportunityPriority.OPPORTUNITYPRIORITY_NAME as \"Priority\", COUNT(Opportunity.OPPORTUNITY_ID) as \"Total Opportunities\", SUM(Opportunity.OPPORTUNITY_AMOUNT) as \"Total Amount\", Currency.CURRENCY_CODE as \"Currency\"\nFROM CODBEX_OPPORTUNITYPRIORITY as OpportunityPriority\n  INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID\n  INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID",
+    "query": "SELECT OpportunityPriority.OPPORTUNITYPRIORITY_NAME as \"Priority\", COUNT(Opportunity.OPPORTUNITY_ID) as \"Total Opportunities\", SUM(Opportunity.OPPORTUNITY_AMOUNT) as \"Total Amount\", Currency.CURRENCY_CODE as \"Currency\"\nFROM CODBEX_OPPORTUNITYPRIORITY as OpportunityPriority\n  INNER JOIN CODBEX_CURRENCY Currency ON Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID\n  INNER JOIN CODBEX_OPPORTUNITY Opportunity ON OpportunityPriority.OPPORTUNITYPRIORITY_ID = Opportunity.OPPORTUNITY_PRIORITY\nGROUP BY OpportunityPriority.OPPORTUNITYPRIORITY_NAME",
     "name": "OpportunityPriority",
     "alias": "OpportunityPriority",
     "table": "CODBEX_OPPORTUNITYPRIORITY",
@@ -11,7 +11,7 @@
             "type": "VARCHAR",
             "aggregate": "NONE",
             "select": true,
-            "grouping": false
+            "grouping": true
         },
         {
             "table": "Opportunity",
@@ -49,10 +49,10 @@
             "condition": "Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID"
         },
         {
-            "alias": "Currency",
-            "name": "CODBEX_CURRENCY",
+            "alias": "Opportunity",
+            "name": "CODBEX_OPPORTUNITY",
             "type": "INNER",
-            "condition": "Opportunity.OPPORTUNITY_CURRENCY = Currency.CURRENCY_ID"
+            "condition": "OpportunityPriority.OPPORTUNITYPRIORITY_ID = Opportunity.OPPORTUNITY_PRIORITY"
         }
     ]
 }
